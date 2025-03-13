@@ -70,7 +70,7 @@
 
         /* Car Swiper Section */
         .car-swiper-container {
-            width: 90%;
+            width: 95%;
             margin: auto;
             padding: 50px 0;
         }
@@ -85,7 +85,7 @@
         }
         .car-box {
             background: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 12px;
             text-align: center;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -93,7 +93,7 @@
         .car-box img {
             width: 100%;
             border-radius: 10px;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
         }
     </style>
