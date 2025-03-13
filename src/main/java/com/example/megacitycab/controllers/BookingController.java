@@ -46,22 +46,22 @@ public class BookingController extends HttpServlet {
         double carPrice = 0;
         switch (carModel) {
             case "Suzuki Alto":
-                carPrice = 4000;
+                carPrice = 4500;
                 break;
             case "Suzuki Wagon R":
-                carPrice = 5000;
+                carPrice = 4000;
                 break;
             case "Toyota Prius":
-                carPrice = 6000;
+                carPrice = 6500;
                 break;
             case "Honda Vessel":
-                carPrice = 6500;
+                carPrice = 7500;
                 break;
             case "Toyota Land Cruiser":
                 carPrice = 7000;
                 break;
             case "Audi A3":
-                carPrice = 8500;
+                carPrice = 9500;
                 break;
         }
         bill += carPrice;
