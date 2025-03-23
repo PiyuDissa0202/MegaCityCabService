@@ -9,14 +9,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4361ee;
-            --secondary-color: #3f37c9;
-            --accent-color: #4895ef;
-            --success-color: #4cc9f0;
+            --primary-color: #712fd3;
+            --secondary-color: #2575fc;
+            --accent-color: #8e44ad;
+            --success-color: #1abc9c;
+            --bg-light: #40839c;
+            --bg-dark: #1c1f2e;
+            --text-light: #e0e0e0;
+            --text-dark: #2c2f40;
         }
 
         body {
-            background-color: #f8f9fa;
+            background: url('<%= request.getContextPath() %>/assets/images/banner.jpg') no-repeat center center fixed;
+            backdrop-filter: blur(3px);
+            height: 100vh;
+            margin: 0;
+            background-size: cover;
             font-family: 'Inter', sans-serif;
         }
 
@@ -25,30 +33,37 @@
             height: 100vh;
             background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
             position: fixed;
-            box-shadow: 3px 0 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 3px 0 25px rgba(0, 0, 0, 0.2);
+            color: var(--text-light);
+            transition: all 0.3s ease-in-out;
         }
 
         .sidebar-header {
             padding: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-link {
-            color: rgba(255, 255, 255, 0.8) !important;
-            padding: 0.8rem 1.5rem !important;
-            margin: 0.25rem 1rem;
-            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.85) !important;
+            padding: 0.9rem 1.5rem !important;
+            margin: 0.3rem 1rem;
+            border-radius: 12px;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .nav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(7px);
         }
 
         .nav-link.active {
-            background: rgba(255, 255, 255, 0.15);
-            font-weight: 500;
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
         }
 
         .main-content {
@@ -58,17 +73,19 @@
 
         .card {
             border: none;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
         .stat-card i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -77,7 +94,7 @@
         .table {
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
         }
 
         .table thead {
@@ -86,14 +103,49 @@
         }
 
         .status-badge {
-            padding: 0.4rem 0.8rem;
+            padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
+            font-weight: bold;
         }
 
-        .badge-completed { background: #e3f2fd; color: #1976d2; }
-        .badge-ongoing { background: #fff3e0; color: #ef6c00; }
-        .badge-pending { background: #fbe9e7; color: #d32f2f; }
+        .badge-completed { background: rgba(26, 188, 156, 0.2); color: #1abc9c; }
+        .badge-ongoing { background: rgba(241, 196, 15, 0.2); color: #f1c40f; }
+        .badge-pending { background: rgba(231, 76, 60, 0.2); color: #e74c3c; }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+        }
+
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 80px;
+                text-align: center;
+            }
+            .sidebar-header {
+                display: none;
+            }
+            .nav-link {
+                padding: 0.8rem;
+                margin: 0.3rem;
+                font-size: 0.9rem;
+            }
+            .main-content {
+                margin-left: 80px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -127,7 +179,6 @@
         <div class="text-muted">Today: <%= new java.util.Date().toLocaleString() %></div>
     </div>
 
-//Dashboard Overview
     <%
         Integer totalBookings = (Integer) request.getAttribute("totalBookings");
         Integer availableCars = (Integer) request.getAttribute("availableCars");
@@ -136,141 +187,9 @@
     %>
 
     <div class="row g-4 mb-4">
-        <div class="col-12 col-sm-6 col-xl-3">
-            <div class="card stat-card h-100 p-3">
-                <div class="card-body">
-                    <i class="fas fa-calendar-check"></i>
-                    <h2 class="mt-3"><%= totalBookings != null ? totalBookings : 0 %></h2>
-                    <p class="text-muted mb-0">Total Bookings</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-xl-3">
-            <div class="card stat-card h-100 p-3">
-                <div class="card-body">
-                    <i class="fas fa-car"></i>
-                    <h2 class="mt-3"><%= availableCars != null ? availableCars : 0 %></h2>
-                    <p class="text-muted mb-0">Available Cars</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-xl-3">
-            <div class="card stat-card h-100 p-3">
-                <div class="card-body">
-                    <i class="fas fa-users"></i>
-                    <h2 class="mt-3"><%= activeDrivers != null ? activeDrivers : 0 %></h2>
-                    <p class="text-muted mb-0">Active Drivers</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-xl-3">
-            <div class="card stat-card h-100 p-3">
-                <div class="card-body">
-                    <i class="fas fa-user-plus"></i>
-                    <h2 class="mt-3"><%= registeredUsers != null ? registeredUsers : 0 %></h2>
-                    <p class="text-muted mb-0">Registered Users</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card border-0 shadow-sm">
-        <div class="card-header bg-white border-0">
-            <h5 class="mb-0">Recent Bookings</h5>
-        </div>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-hover mb-0">
-                    <thead class="table-dark">
-                    <tr>
-                        <th>Booking ID</th>
-                        <th>Customer</th>
-                        <th>Driver</th>
-                        <th>Vehicle</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>#MC-2456</td>
-                        <td>John Doe</td>
-                        <td>Mike Smith</td>
-                        <td>Toyota Prius</td>
-                        <td><span class="status-badge badge-completed">Completed</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#MC-2457</td>
-                        <td>Sarah Lee</td>
-                        <td>David Brown</td>
-                        <td>Honda Accord</td>
-                        <td><span class="status-badge badge-ongoing">Ongoing</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#MC-2458</td>
-                        <td>Mark Wilson</td>
-                        <td>Robert Green</td>
-                        <td>Ford Focus</td>
-                        <td><span class="status-badge badge-pending">Pending</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#MC-2456</td>
-                        <td>John Doe</td>
-                        <td>Mike Smith</td>
-                        <td>Toyota Prius</td>
-                        <td><span class="status-badge badge-completed">Completed</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#MC-2457</td>
-                        <td>Sarah Lee</td>
-                        <td>David Brown</td>
-                        <td>Honda Accord</td>
-                        <td><span class="status-badge badge-ongoing">Ongoing</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#MC-2456</td>
-                        <td>John Doe</td>
-                        <td>Mike Smith</td>
-                        <td>Toyota Prius</td>
-                        <td><span class="status-badge badge-completed">Completed</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <div class="col-12 col-sm-6 col-xl-3"><div class="card stat-card p-3"><div class="card-body"><i class="fas fa-calendar-check"></i><h2 class="mt-3"><%= totalBookings != null ? totalBookings : 5 %></h2><p>Total Bookings</p></div></div></div>
+        <div class="col-12 col-sm-6 col-xl-3"><div class="card stat-card p-3"><div class="card-body"><i class="fas fa-car"></i><h2 class="mt-3"><%= availableCars != null ? availableCars : 10 %></h2><p>Available Cars</p></div></div></div>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

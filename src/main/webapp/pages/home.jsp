@@ -12,47 +12,97 @@
     <title>Megacity Cab - Book Your Ride</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* Hero Section - Modernized */
         .hero-section {
-            height: 60vh;
+            height: 100vh;
             width: 100%;
-            background: url('<%= request.getContextPath() %>/assets/images/login.jpg') no-repeat center center fixed;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
+            url('<%= request.getContextPath() %>/assets/images/homep.jpeg')
+            no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
             color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
         }
+
+        /* Car Card Styling */
         .car-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-radius: 15px;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            border-radius: 18px;
             overflow: hidden;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            text-align: center;
         }
         .car-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 174, 255, 0.3);
         }
+
+        /* Price Tag - Sleek Look */
         .price-tag {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.7);
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(to right, #007bff, #00d4ff);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            font-size: 1rem;
+            padding: 8px 20px;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0, 174, 255, 0.4);
+            font-weight: bold;
         }
+
+        /* Animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in {
-            animation: fadeIn 0.6s ease-out;
+            animation: fadeIn 0.7s ease-out;
         }
+
+        /* Top Right Buttons - Floating Effect */
         .top-right-buttons {
             position: absolute;
             top: 20px;
             right: 20px;
+            display: flex;
+            gap: 12px;
         }
-        .modal-content {
+        .top-right-buttons button {
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            font-size: 1rem;
+            font-weight: bold;
             border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0px 5px 12px rgba(0, 174, 255, 0.4);
         }
+        .top-right-buttons button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 18px rgba(0, 174, 255, 0.6);
+        }
+
+        /* Modal Content - Smooth Look */
+        .modal-content {
+            border-radius: 12px;
+            background: rgb(64, 131, 156);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            box-shadow: 0px 6px 18px rgb(64, 131, 156);
+        }
+
     </style>
 </head>
 <body>
@@ -61,6 +111,7 @@
 <div class="top-right-buttons">
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">Book Now</button>
     <a href="../index.jsp" class="btn btn-danger">Logout</a>
+    <a href="makePayment.jsp" class="btn btn-danger">Pay</a>
 </div>
 
 <!-- Booking Modal -->

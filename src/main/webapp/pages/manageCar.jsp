@@ -17,7 +17,36 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url('<%= request.getContextPath() %>/assets/images/banner.jpg') no-repeat center center fixed;
+            background-size: cover;
+            backdrop-filter: blur(3px);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 150px;
+            color: #0a0a0a;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .table {
+            background: rgba(255, 255, 255, 0.9); /* Light background for the table */
+            color: black;
+        }
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95); /* Modal background */
+        }
+    </style>
 </head>
+
 <body class="bg-light">
 
 <div class="container mt-4">

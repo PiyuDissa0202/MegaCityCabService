@@ -2,6 +2,7 @@ package com.example.megacitycab.controllers;
 
 import com.example.megacitycab.dao.DashboardDAO;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +28,6 @@ public class AdminDashboardController extends HttpServlet {
         request.setAttribute("registeredUsers", registeredUsers);
 
         // Forward to dashboard.jsp
-        request.getRequestDispatcher("/pages/dashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("/pages/adminDashboard.jsp").forward(request, response);
     }
 }

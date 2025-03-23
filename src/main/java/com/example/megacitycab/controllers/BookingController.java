@@ -2,10 +2,10 @@ package com.example.megacitycab.controllers;
 
 import com.example.megacitycab.dao.BookingDAO;
 import com.example.megacitycab.models.Booking;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 
 
 import javax.servlet.ServletException;
@@ -46,22 +46,22 @@ public class BookingController extends HttpServlet {
         double carPrice = 0;
         switch (carModel) {
             case "Suzuki Alto":
-                carPrice = 4500;
-                break;
-            case "Suzuki Wagon R":
                 carPrice = 4000;
                 break;
+            case "Suzuki Wagon R":
+                carPrice = 5000;
+                break;
             case "Toyota Prius":
-                carPrice = 6500;
+                carPrice = 6000;
                 break;
             case "Honda Vessel":
-                carPrice = 7500;
+                carPrice = 6500;
                 break;
             case "Toyota Land Cruiser":
                 carPrice = 7000;
                 break;
             case "Audi A3":
-                carPrice = 9500;
+                carPrice = 8500;
                 break;
         }
         bill += carPrice;

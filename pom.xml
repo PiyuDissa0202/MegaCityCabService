@@ -52,11 +52,7 @@
         </dependency>
 
         <!-- JPA Implementation -->
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>eclipselink</artifactId>
-            <version>4.0.2</version>
-        </dependency>
+
 
         <!-- Validation -->
         <dependency>
@@ -101,24 +97,7 @@
         </dependency>
 
         <!-- H2 Database (For Testing) -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>2.2.224</version>
-        </dependency>
 
-        <!-- MySQL Database Connector -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.33</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mindrot</groupId>
-            <artifactId>jbcrypt</artifactId>
-            <version>0.4</version>
-        </dependency>
 
 
     </dependencies>

@@ -27,18 +27,23 @@ public class AuthController extends HttpServlet {
         UserDAO userDAO = new UserDAO(connection);
 
         if ("login".equals(action)) {
-            String userType = request.getParameter("userType");
-            String identifier = request.getParameter(userType.equals("admin") ? "username" : "email");
+            String userType = request.getParameter("userType"); // Get user type (admin or customer)
+            String identifier = request.getParameter(userType.equals("admin") ? "username" : "email"); // Use username for admin, email for customer
             String password = request.getParameter("password");
 
+            // Authenticate user
             User user = userDAO.login(identifier, password, userType);
             if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                response.sendRedirect(request.getContextPath() + "/pages/adminDashboard.jsp");
+
+                // Redirect based on user type
+                String redirectPage = userType.equals("admin") ? "/pages/adminDashboard.jsp" : "/pages/home.jsp";
+                response.setContentType("text/html;charset=UTF-8");
+                response.getWriter().write("<script>alert('Login successful! Redirecting to dashboard.'); window.location.href='" + request.getContextPath() + redirectPage + "';</script>");
             } else {
-                request.getSession().setAttribute("error", "Invalid credentials!");
-                response.sendRedirect("login.jsp");
+                response.setContentType("text/html;charset=UTF-8");
+                response.getWriter().write("<script>alert('Invalid credentials! Please try again.'); window.history.back();</script>");
             }
         }
 
@@ -48,10 +53,10 @@ public class AuthController extends HttpServlet {
             String newPassword = userDAO.resetAdminPassword(adminEmail);
             if (newPassword != null) {
                 request.getSession().setAttribute("success", "New password has been sent to your email.");
-                response.sendRedirect("login.jsp");
+                response.sendRedirect(request.getContextPath() + "/pages/manageCar.jsp");
             } else {
-                request.getSession().setAttribute("error", "Email not found!");
-                response.sendRedirect("logi.jsp");
+                response.setContentType("text/html;charset=UTF-8");
+                response.getWriter().write("<script>alert('Invalid email! Please try again.'); window.history.back();</script>");
             }
         }
     }

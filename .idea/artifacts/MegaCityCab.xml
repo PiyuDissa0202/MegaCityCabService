@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jpackage" name="MegaCityCab">
+    <output-path>$PROJECT_DIR$/out/artifacts/MegaCityCab</output-path>
+    <root id="root">
+      <element id="archive" name="MegaCityCab.jar">
+        <element id="module-output" name="MegaCityCab" />
+      </element>
+    </root>
+  </artifact>
+</component>

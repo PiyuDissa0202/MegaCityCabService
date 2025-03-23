@@ -14,53 +14,62 @@
     <style>
         /* Fixed Background Image */
         .main-banner {
-            background: url('<%= request.getContextPath() %>/assets/images/b.jpg') no-repeat center center fixed;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+            url('<%= request.getContextPath() %>/assets/images/index.jpg')
+            no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
-            font-size: 2rem;
-            position: relative;
+            color: #f8f9fa;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         /* Services Section */
         .service-box {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            padding: 20px;
-            border-radius: 12px;
-            background: white;
-            box-shadow: 0 4px 10px rgba(242, 242, 242, 0.8);
+            transition: all 0.4s ease-in-out;
+            padding: 25px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #ffffff, #8050af);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
+            border: 2px solid #d1d1d1;
         }
         .service-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-12px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
         .service-box img {
-            width: 300px;
-            height: 400px;
+            width: 280px;
+            height: 380px;
             margin-bottom: 15px;
+            border-radius: 10px;
+            border: 3px solid #007bff;
         }
 
         /* Big Banner Section */
         .big-banner {
-            background: url('<%= request.getContextPath() %>/assets/images/banner.jpg') no-repeat center center;
+            background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(0, 0, 0, 0.8)),
+            url('<%= request.getContextPath() %>/assets/images/ind.jpg')
+            no-repeat center center;
             background-size: cover;
             height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
-            position: relative;
+            color: #ffffff;
         }
         .big-banner .content {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 40px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 45px;
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             animation: fadeIn 1.5s ease-in-out;
         }
         @keyframes fadeIn {
@@ -70,7 +79,7 @@
 
         /* Car Swiper Section */
         .car-swiper-container {
-            width: 95%;
+            width: 90%;
             margin: auto;
             padding: 50px 0;
         }
@@ -78,24 +87,28 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.4s ease-in-out;
         }
         .swiper-slide:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
         .car-box {
-            background: white;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 2px solid #6c757d;
         }
         .car-box img {
             width: 100%;
-            border-radius: 10px;
-            height: 280px;
+            border-radius: 12px;
+            height: 260px;
             object-fit: cover;
+            border: 3px solid #28a745;
         }
+
+        
     </style>
 </head>
 <body>
@@ -106,8 +119,8 @@
 <!-- Main Banner Section -->
 <div class="main-banner">
     <div class="banner-text">
-        <h1>Welcome to Mega City Cab</h1>
-        <p>Book your ride with us and experience comfort!</p>
+        <h1>Welcome !</h1>
+        <p> We’re here to get you where you need to go, anytime, anywhere!</p>
     </div>
 </div>
 
@@ -117,23 +130,23 @@
     <div class="row">
         <div class="col-md-4">
             <div class="service-box">
-                <img src="<%= request.getContextPath() %>/assets/images/s1.jpg" alt="24/7 Service">
-                <h3>🚖 24/7 Service</h3>
-                <p>We provide cab services around the clock!</p>
+                <img src="<%= request.getContextPath() %>/assets/images/book.png" alt="24/7 Service">
+                <h3>🚖 24-Hour Service </h3>
+                <p>Our cab services are available anytime, day or night!</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="service-box">
-                <img src="<%= request.getContextPath() %>/assets/images/s2.jpg" alt="Affordable Rates">
-                <h3>💰 Affordable Rates</h3>
-                <p>Get the best rates for your rides.</p>
+                <img src="<%= request.getContextPath() %>/assets/images/payement.jpg" alt="Affordable Rates">
+                <h3>💰 Budget-Friendly Prices</h3>
+                <p>Enjoy the most competitive rates for your journeys.</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="service-box">
-                <img src="<%= request.getContextPath() %>/assets/images/s3.jpg" alt="Clean & Safe">
-                <h3>✅ Clean & Safe</h3>
-                <p>Our cars are well-maintained and sanitized.</p>
+                <img src="<%= request.getContextPath() %>/assets/images/cab.jpg" alt="Clean & Safe">
+                <h3>✅ Safety Service</h3>
+                <p>Our vehicles are regularly serviced and thoroughly sanitized..</p>
             </div>
         </div>
     </div>
@@ -142,8 +155,7 @@
 <!-- Big Banner Section -->
 <section class="big-banner">
     <div class="content">
-        <h2>Ride in Comfort & Style</h2>
-        <p>Experience the best car rental services with Mega City Cab.</p>
+        <h2><p>Experience the best car rental services with Mega City Cab.</p></h2>
         <button class="btn btn-primary btn-lg">Book Now</button>
     </div>
 </section>
@@ -169,22 +181,22 @@
             </div>
             <div class="swiper-slide">
                 <div class="car-box">
-                    <img src="<%= request.getContextPath() %>/assets/images/cars/678b06953c708.jpeg" alt="Car 3">
-                    <h4>Mercedes-Benz</h4>
+                    <img src="<%= request.getContextPath() %>/assets/images/cars/vaganr.jpg" alt="Car 3">
+                    <h4>Suzuki- Wagan R</h4>
                     <p>Luxury | Automatic | 2023</p>
                 </div>
             </div>
             <div class="swiper-slide">
                 <div class="car-box">
-                    <img src="<%= request.getContextPath() %>/assets/images/cars/67594cf199fdd.jpeg" alt="Car 3">
-                    <h4>Mercedes-Benz</h4>
+                    <img src="<%= request.getContextPath() %>/assets/images/cars/chR.png" alt="Car 3">
+                    <h4>TOYOTA- CHR </h4>
                     <p>Luxury | Automatic | 2023</p>
                 </div>
             </div>
             <div class="swiper-slide">
                 <div class="car-box">
-                    <img src="<%= request.getContextPath() %>/assets/images/cars/6789753aa211e.jpeg" alt="Car 3">
-                    <h4>Mercedes-Benz</h4>
+                    <img src="<%= request.getContextPath() %>/assets/images/cars/panda.jpg" alt="Car 3">
+                    <h4>Micro-Panda</h4>
                     <p>Luxury | Automatic | 2023</p>
                 </div>
             </div>
@@ -196,11 +208,7 @@
     </div>
 </section>
 
-<!-- Google Map Section -->
-<section class="container py-5">
-    <h2 class="text-center mb-4">Our Location</h2>
-    <div id="map"></div>
-</section>
+
 
 <!-- Footer -->
 <jsp:include page="/includes/footer.jsp" />

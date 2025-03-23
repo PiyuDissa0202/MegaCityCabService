@@ -17,63 +17,164 @@
 
   <!-- Custom CSS -->
   <style>
+    /* Base Styling */
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url('<%= request.getContextPath() %>/assets/images/banner.jpg')
+      no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(3px);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 150px;
+    }
+
     .guide-section {
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+
     .guide-section:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
+
     .step-icon {
-      width: 80px;
-      height: 80px;
-      background: #1976d2;
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(45deg, #531aff, #4dd0ff);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 20px;
+      margin: 0 auto 25px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
+
     .step-number {
       position: absolute;
-      top: -15px;
-      right: -15px;
-      background: #ff4081;
+      top: -20px;
+      right: -20px;
+      background: #ff5733;
       color: white;
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: bold;
+      font-size: 18px;
     }
+
     .feature-card {
       border: none;
-      border-radius: 15px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      background: #ffffff;
+      transition: transform 0.4s, box-shadow 0.4s;
     }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
+    }
+
     .animated-line {
-      border-left: 3px dashed #1976d2;
+      border-left: 3px dashed #3498db;
       height: 80px;
-      margin: 20px auto;
+      margin: 25px auto;
       animation: pulse 2s infinite;
     }
+
     @keyframes pulse {
       0% { opacity: 0.5; }
       50% { opacity: 1; }
       100% { opacity: 0.5; }
     }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #531aff, #4dd0ff);
+      color: white;
+      padding: 300px 0; /* Increased padding for more height */
+      min-height: 100vh; /* Ensures it takes at least the full viewport height */
+      display: flex;
+      align-items: center; /* Centers content vertically */
+      text-align: center;
+    }
+
+
+    .hero-section h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    .hero-section img {
+      max-width: 320px;
+      margin-top: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* FAQ Accordion */
+    .accordion-button {
+      background: #3498db;
+      color: white;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .accordion-button:hover {
+      background-color: #2980b9;
+    }
+
+    .accordion-item {
+      border: none;
+      margin-bottom: 15px;
+    }
+
+    .accordion-body {
+      background: #f7f7f7;
+      color: #333;
+      font-size: 1.1rem;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .accordion-header button::after {
+      content: none;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 1rem;
+    }
+
   </style>
 </head>
-<body class="bg-light">
+<body>
 
 <!-- Hero Section -->
-<section class="py-5 text-center bg-primary text-white">
+<section class="hero-section">
   <div class="container">
-    <h1 class="display-4 animate__animated animate__fadeInDown">Welcome to MegaCity Cab</h1>
+    <h1 class="animate__animated animate__fadeInDown">Welcome to MegaCity Cab</h1>
     <p class="lead animate__animated animate__fadeInUp">Your Ultimate Guide to Seamless Transportation</p>
-    <img src="https://cdn.dribbble.com/users/2400293/screenshots/16527147/media/085b6b14717db7c0b4e076fadd4f5aeb.png"
-         alt="Taxi Illustration" class="img-fluid mt-4 animate__animated animate__zoomIn" style="max-height: 300px;">
+
   </div>
 </section>
 
@@ -181,6 +282,8 @@
     </div>
   </div>
 </div>
+
+
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

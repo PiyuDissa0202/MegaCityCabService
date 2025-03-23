@@ -13,80 +13,117 @@
 
     <!-- Custom Styles -->
     <style>
+        /* Body Styling */
         body {
-            background: url('<%= request.getContextPath() %>/assets/images/login.jpg') no-repeat center center fixed;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url('<%= request.getContextPath() %>/assets/images/banner.jpg')
+            no-repeat center center fixed;
             background-size: cover;
-            backdrop-filter: blur(2px);
-            height: 100%;
+            backdrop-filter: blur(3px);
+            height: 100vh;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             padding-top: 150px;
-
         }
 
+        /* Switch Container */
         .switch-container {
             display: inline-flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 18px;
+            border-radius: 25px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
         }
+
+        /* Toggle Styling */
         .switch-toggle {
             cursor: pointer;
-            padding: 8px 15px;
+            padding: 10px 20px;
             font-weight: bold;
+            font-size: 1.1rem;
             color: #ffffff;
-            border-radius: 20px;
+            border-radius: 25px;
             transition: all 0.3s ease-in-out;
         }
         .switch-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.25);
         }
         .switch-toggle.active {
-            background: linear-gradient(to right, #007bff, #00c6ff);
+            background: linear-gradient(to right, #2a72db, #00d4ff);
             color: white;
-            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
-            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 174, 255, 0.5);
+            transform: scale(1.08);
         }
+
+        /* Divider */
         .divider {
             color: white;
             font-weight: bold;
-            margin: 0 10px;
+            margin: 0 12px;
         }
-        .login-container {
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out;
 
+        /* Login Container */
+        .login-container {
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 18px rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s ease-in-out;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
         }
         .login-container:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
+
+        /* Input Fields */
         .form-control {
-            border-radius: 8px;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
         }
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Login Button */
         .btn-login {
-            background: linear-gradient(to right, #007bff, #00c6ff);
+            background: linear-gradient(to right, #0066ff, #00d9ff);
             border: none;
             color: white;
-            transition: all 0.3s ease-in-out;
+            font-size: 1.1rem;
+            padding: 12px 25px;
+            border-radius: 10px;
+            transition: all 0.4s ease-in-out;
         }
         .btn-login:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.5);
+            transform: scale(1.1);
+            box-shadow: 0px 5px 15px rgba(0, 174, 255, 0.6);
         }
+
+        /* Toggle Link */
         .switch-toggle {
             cursor: pointer;
             font-weight: bold;
+            font-size: 1rem;
             text-decoration: underline;
-            color: #007bff;
+            color: #00c6ff;
+            transition: color 0.3s ease-in-out;
         }
+        .switch-toggle:hover {
+            color: #ffffff;
+        }
+
+
     </style>
 </head>
 <body>
